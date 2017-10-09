@@ -9,6 +9,11 @@ import javax.jms.TextMessage;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+/**
+ * 
+ * @author Jihed KAOUECH
+ *
+ */
 public class Consumer {
 
 	private String queue;
@@ -16,6 +21,12 @@ public class Consumer {
 
 	private ActiveMQConnectionFactory connectionFactory;
 
+	/**
+	 * Consumer constructor.
+	 * 
+	 * @param brokerUrl : JMS broker URL
+	 * @param queue : JMS queue
+	 */
 	public Consumer(String brokerUrl, String queue) {
 		this.queue = queue;
 		this.brokerUrl = brokerUrl;
@@ -23,6 +34,9 @@ public class Consumer {
 		connectionFactory = new ActiveMQConnectionFactory(brokerUrl);
 	}
 	
+	/**
+	 * Read JMS Message
+	 */
 	public void run() {
 
 		try {
